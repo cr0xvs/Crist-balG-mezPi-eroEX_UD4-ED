@@ -8,17 +8,19 @@ import javax.swing.WindowConstants;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+/**
+ * 
+ * @author 1DAW08
+ */
+public class Apuesta extends javax.swing.JFrame {
 
-public class ventanaPrincipal extends javax.swing.JFrame {
-
-   
-    public ventanaPrincipal() 
+    
+    public Apuesta() 
     {
         initComponents();
         this.setResizable(Boolean.FALSE);
     }
-
-   
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -120,32 +122,49 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Parametro evt para ejecutar correctamente el evento.
+     * @param evt 
+     */
     private void bNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNuevoActionPerformed
-        ventanaNuevo agregarpartido = new ventanaNuevo(this);
+        crearPartido agregarpartido = new crearPartido(this);
         agregarpartido.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         agregarpartido.setSize(400, 75);
         agregarpartido.setResizable(Boolean.FALSE);
         agregarpartido.setTitle("Agregar nuevo partido");
         agregarpartido.setVisible(Boolean.TRUE);
     }//GEN-LAST:event_bNuevoActionPerformed
-
+    /**
+     * Parametro evt para ejecutar correctamente el evento.
+     * @param evt 
+     */
     private void bEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEliminarActionPerformed
-        eliminarPartido(listaQuiniela.getSelectedIndex());
+        borraPartido(listaQuiniela.getSelectedIndex());
     }//GEN-LAST:event_bEliminarActionPerformed
-
+    /**
+     * Parametro evt para ejecutar correctamente el evento.
+     * @param evt 
+     */
     private void bResetearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bResetearActionPerformed
         DefaultListModel modelovacio = new DefaultListModel();
         this.listaQuiniela.setModel(modelovacio);
         this.listaResultados.setModel(modelovacio);
     }//GEN-LAST:event_bResetearActionPerformed
 
-   
-    public int aleatorioEntreDosNumeros(int n1, int n2)
+    /**
+     * Parametros que utiliza n1 y n2 para que se generen los números aleatorios correctamente.
+     * @param n1
+     * @param n2
+     * @return Para que vuelva y haga correctamente los parametros.
+     */
+    public int cualquiera(int n1, int n2)
     {
         return (int)Math.floor((Math.random()*(n2-n1+1) + n1));
     }
-    
+    /**
+     * Parametro evt para ejecutar correctamente el evento.
+     * @param evt 
+     */
     private void bRealizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRealizarActionPerformed
         DefaultListModel modeloquinielaresuelta = new DefaultListModel();
 
@@ -153,7 +172,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         {
             String partidoresuelto = this.listaQuiniela.getModel().getElementAt(i).toString();
             
-            switch( aleatorioEntreDosNumeros(0,2) )
+            switch( cualquiera(0,2) )
             {
                 case 0:
                     partidoresuelto += " -> 1";
@@ -172,8 +191,11 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         this.listaResultados.setModel(modeloquinielaresuelta);
     }//GEN-LAST:event_bRealizarActionPerformed
 
-    
-    public void agregarPartido(String partido)
+    /**
+     * Parametro partido utilizado para que aparezcan los partidos en la quiniela.
+     * @param partido 
+     */
+    public void partidoNuevo(String partido)
     {
         DefaultListModel modelonuevo = new DefaultListModel();
 
@@ -186,8 +208,11 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         this.listaQuiniela.setModel(modelonuevo);
     }
     
-  
-    public void eliminarPartido(int indice)
+    /**
+     * Parametro usado para que se elimine el partido eficazmente.
+     * @param indice 
+     */
+    public void borraPartido(int indice)
     {
         DefaultListModel modelonuevoquiniela = new DefaultListModel();
         DefaultListModel modelonuevoresultados = new DefaultListModel();
@@ -212,7 +237,10 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         this.listaResultados.setModel(modelonuevoresultados);
     }
     
-   
+    /**
+     * Parametro usado para que el args se ejecute correctamente.
+     * @param args 
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -227,24 +255,25 @@ public class ventanaPrincipal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ventanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Apuesta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ventanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Apuesta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ventanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Apuesta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ventanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Apuesta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ventanaPrincipal().setVisible(true);
+                new Apuesta().setVisible(true);
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bEliminar;
     private javax.swing.JButton bNuevo;
