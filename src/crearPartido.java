@@ -2,20 +2,26 @@
 import java.awt.event.KeyEvent;
 
 
-
+/**
+ * 
+ * @author 1DAW08
+ */
 public class crearPartido extends javax.swing.JFrame
 {
    
     
     private Apuesta v;
     
-   
+    
     public crearPartido() 
     {
         initComponents();
     }
 
-   
+    /**
+     * Parametro creado para que se muetre la apuesta en la ventana de manera correcta.
+     * @param ventana 
+     */
     public crearPartido(Apuesta ventana) 
     {
         initComponents();
@@ -69,18 +75,27 @@ public class crearPartido extends javax.swing.JFrame
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Parametro que usa para añadir los partidos nuevos a la quiniela.
+     * @param p 
+     */
     public void añadePartido(String p)
     {
         v.partidoNuevo(p);
         tPartido.setText("");
         tPartido.requestFocus();
     }
-    
+    /**
+     * Parametro usado para que el evento de añadir partido se haga correctamente.
+     * @param evt 
+     */
     private void bAgregarPartidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAgregarPartidoActionPerformed
         añadePartido(tPartido.getText());
     }//GEN-LAST:event_bAgregarPartidoActionPerformed
-
+    /**
+     * Parametro usado para que el evento funcionen correctamente.
+     * @param evt 
+     */
     private void tPartidoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tPartidoKeyPressed
         if( evt.getKeyCode() == KeyEvent.VK_ENTER )
         {
@@ -88,7 +103,10 @@ public class crearPartido extends javax.swing.JFrame
         }
     }//GEN-LAST:event_tPartidoKeyPressed
 
-    
+    /**
+     * Parametro usado para que se ejecute el args correctamente.
+     * @param args 
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
